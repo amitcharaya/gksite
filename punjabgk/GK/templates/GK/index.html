@@ -1,0 +1,41 @@
+{% extends "GK/base.html"%}
+ {%block content%}
+       <!--================Home Banner Area =================-->
+        <section class="banner_area">
+            <div class="banner_inner d-flex align-items-center">
+            	<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+				<div class="container">
+					<div class="banner_content text-center">
+                        <!--================Testimonials Area =================-->
+                        <section class="testimonials_area p_120">
+                        <div class="container">
+                            <div class="testi_slider owl-carousel">
+                                {% for type in qt %}
+                                     {% if type.question_type != 'none' %}
+                                <div class="item">
+                                    <div class="page_link">
+                                        <img src="img/testimonials/testi-3.png" alt="">
+                                        <a class="page_link" href="{% url 'GK:questions' type.id  %}">		<h1>{{type}}</h1>
+                                        <p>Learn question related to {{type}}</p></a>
+                                    </div>
+                                </div>
+                                    {% endif %}
+                                {% endfor %}
+
+
+
+                            </div>
+                        </div>
+                    </section>
+                        <!--================End Testimonials Area =================-->
+
+					</div>
+				</div>
+            </div>
+        </section>
+        <!--================End Home Banner Area =================-->
+
+
+
+
+  {%endblock content%}
