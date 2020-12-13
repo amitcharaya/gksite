@@ -2,7 +2,7 @@ from django.urls import path,include
 
 
 from . import views
-
+app_name='menu'
 urlpatterns=[
     path('',views.index,name="index"),
     path('register/',views.register,name="register"),
@@ -15,4 +15,7 @@ urlpatterns=[
     path('contact/',views.contact,name="contact"),
     path("message/", views.message,name="message"),
     path("GK/", include("GK.urls")),
+    path("category/<int:id>/",views.category,name="category"),
+    path("postdetail/<int:id>/",views.postdetail,name="postdetail"),
+    path("subcategory/<int:id>/",views.subcategory,name="subcategory"),
 ]

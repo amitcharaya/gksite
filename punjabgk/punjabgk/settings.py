@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "menu.apps.MyappConfig",
     "GK.apps.GkConfig",
     "import_export",
+    "ckeditor",
 ]
 
 MIDDLEWARE = [
@@ -104,10 +105,10 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'HOST': '127.0.0.1',
-            'PORT': '8080',
+            'PORT': '3306',
             'NAME': 'learn4test',
-            'USER': 'root',
-            'PASSWORD': 'amit@8080',
+            'USER': 'amit',
+            'PASSWORD': 'Amit@8080',
         }
     }
 
@@ -159,4 +160,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS=[
-'message/static']
+'menu/static']

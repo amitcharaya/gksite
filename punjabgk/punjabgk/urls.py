@@ -4,6 +4,7 @@ from django.contrib import admin
 
 admin.autodiscover()
 
+admin.site.enable_nav_sidebar = False
 import menu.views
 
 # To add a new path, first import the app:

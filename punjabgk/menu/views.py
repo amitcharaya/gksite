@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
 from django.http import HttpResponse
-from .models import Message
+from .models import Message,Menus,Categories,Postdetail,SubCategories
 import os
 import requests
 
@@ -30,7 +30,9 @@ def logout(request):
 # Create your views here.
 def index(request):
     # return HttpResponse('Hello from Python!')
-    return render(request, "menu/index.html")
+    menus=Menus.objects.all()
+    context={"menus":menus}
+    return render(request, "menu/index.html",context)
 
 def about(request):
     # return HttpResponse('Hello from Python!')
@@ -40,10 +42,32 @@ def courses(request):
     # return HttpResponse('Hello from Python!')
     return render(request, "menu/courses.html")
 
+def category(request,id):
+    menus=Menus.objects.all()
+    category=Categories.objects.filter(menu_related=id)
+    context={"categories":category,"menus":menus}
+    return render(request, 'menu/category.html', context)
+
+def subcategory(request,id):
+    menus=Menus.objects.all()
+    category=SubCategories.objects.filter(category=id)
+    context={"subcategories":category,"menus":menus}
+    return render(request, 'menu/category.html', context)
+
+
+def postdetail(request,id):
+    menus = Menus.objects.all()
+
+    postdetail=Postdetail.objects.filter(subcategory=id)
+    context={"postdetails":postdetail,"menus":menus}
+    return render(request, 'menu/postdetail.html', context)
+
 
 def contact(request):
     # return HttpResponse('Hello from Python!')
-    return render(request, "menu/contact.html")
+    menus = Menus.objects.all()
+    context = {"menus": menus}
+    return render(request, "menu/contact.html",context)
 
 def message(request):
     try:
