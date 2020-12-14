@@ -7,18 +7,20 @@
     <div class="step-links">
         <section class="courses_area p_120">
             <div class="container">
-                <div class="text-lg-left">
+                <div class="container">
+                    <ul>
                     {% if categories %}
-                    <div>
+
+
                         {% for category in categories %}
-                           <h3> <a href="{% url 'menu:subcategory' category.id%}">{{category}}</a></h3>
+                           <li > <a href="{% url 'menu:subcategory' category.id%}">{{category}}</a></li>
                         {% endfor %}
                     {% elif subcategories %}
                         {% for category in subcategories %}
-                           <h3> <a href="{% url 'menu:postdetail' category.id%}">{{category}}</a></h3>
+                           <li> <a href="{% url 'menu:postdetail' category.id%}">{{category}}</a></li>
                         {% endfor %}
                     {% endif %}
-                    </div>
+                    </ul>
                 </div>
 
             </div>
