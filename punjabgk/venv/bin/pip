@@ -1,4 +1,4 @@
-#!/home/amit/PycharmProjects/gksite/punjabgk/venv/bin/python
+#!/root/gksite/punjabgk/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
