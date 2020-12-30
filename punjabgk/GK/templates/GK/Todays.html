@@ -28,7 +28,7 @@
                             <div id="ans{{ question.id }}" class="collapse">
                                 <h4><br/> {{question.answer_text}}</h4><br/>
 					
-                                {% if question.notes %}Notes:<br><blockquote class="generic-blockquote">{{question.notes}} </blockquote>{%endif%}
+                                {% if question.notes %}Notes:<br><blockquote class="generic-blockquote">{{question.notes|safe}} </blockquote>{%endif%}
                             </div>
                             </h3>
                             <!--
