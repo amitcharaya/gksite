@@ -26,7 +26,7 @@ SECRET_KEY = '&uje%7m+iipk6!v35na35ao=vvsy9boc@uhldclk$2!6fdrfm9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['103.140.2.224','127.0.0.1','web.learn4test.com']
+ALLOWED_HOSTS = ['103.140.2.224','127.0.0.1','web.learn4test.com','68.183.82.196']
 
 
 # Application definition
