@@ -21,12 +21,12 @@ def login(request):
             return redirect("/")
         else:
             messages.info(request,"Invalid credentials")
-            return  redirect('login')
+            return  redirect('/login/')
     else:
         return render(request,"menu/login.html")
 def logout(request):
     auth.logout(request)
-    return redirect("login")
+    return redirect("/login/")
 # Create your views here.
 def index(request):
     # return HttpResponse('Hello from Python!')
@@ -78,10 +78,10 @@ def message(request):
         msg.message=request.POST.get('message')
         msg.save()
         messages.info(request,"Thank You! Your Message sent")
-        return redirect('contact')
+        return redirect('/contact/')
     except:
         messages.info(request, "Sorry Something went wrong Try again")
-        return redirect('contact')
+        return redirect('/contact/')
 
 def register(request):
     if request.method=='POST':
@@ -93,7 +93,7 @@ def register(request):
         if password1==password2:
             if User.objects.filter(email=email):
                 messages.info(request,"Email alredy exist")
-                return redirect('register')
+                return redirect('/register/')
             else:
 
                 user=User.objects.create_user(username=email,email=email,password=password1,first_name=name)
@@ -102,7 +102,7 @@ def register(request):
                 return redirect('/')
         else:
             messages.info(request, "Password do not match")
-            return redirect('register')
+            return redirect('/register/')
     else:
         return render(request, "menu/register.html")
 
