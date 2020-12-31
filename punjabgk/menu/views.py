@@ -21,12 +21,12 @@ def login(request):
             return redirect("/")
         else:
             messages.info(request,"Invalid credentials")
-            return  redirect('login')
+            return  redirect('/login')
     else:
         return render(request,"menu/login.html")
 def logout(request):
     auth.logout(request)
-    return redirect("login")
+    return redirect("/login")
 # Create your views here.
 def index(request):
     # return HttpResponse('Hello from Python!')
