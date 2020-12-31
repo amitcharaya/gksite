@@ -26,7 +26,7 @@ def login(request):
         return render(request,"menu/login.html")
 def logout(request):
     auth.logout(request)
-    return redirect("/login/")
+    return redirect("/")
 # Create your views here.
 def index(request):
     # return HttpResponse('Hello from Python!')
