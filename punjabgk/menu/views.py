@@ -25,7 +25,7 @@ def login(request):
     else:
         return render(request,"menu/login.html")
 def logout(request):
-    auth.logout(request)
+    #auth.logout(request)
     return render(request,"menu/login.html")
 # Create your views here.
 def index(request):
