@@ -1,0 +1,42 @@
+{%  extends 'menu/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="pagination">
+    <div class="step-links">
+        <section class="courses_area p_120">
+            <div class="container">
+                <div class="container">
+                    <ul>
+                    {% if categories %}
+
+
+                        {% for category in categories %}
+                           <li > <a href="{% url 'menu:subcategory' category.id%}">{{category}}</a></li>
+                        {% endfor %}
+                    {% elif subcategories %}
+                        {% for category in subcategories %}
+                           <li> <a href="{% url 'menu:postdetail' category.id%}">{{category}}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                    </ul>
+                </div>
+
+            </div>
+
+        </section>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+        {% endblock %}
+
+    </body>
+</html>

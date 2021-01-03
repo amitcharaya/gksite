@@ -1,0 +1,43 @@
+{%  extends "GK/base.html"%}
+{% block css%}
+<style>
+  /* Icon when the collapsible content is shown */
+
+  #sh:after {
+    font-family:"Glyphicons Halflings";
+    content: "\e114";
+    float: right;
+    margin-left: 15px;
+  }
+  /* Icon when the collapsible content is hidden */
+  #sh.collapsed:after {
+    content: "\e080";
+  }
+</style>
+{% endblock css%}
+{% block content%}
+ <section class="courses_area p_120">
+        	<div class="container">
+        		<div class="body">
+                    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                <h2>Q: {{ question.question_text }}</h2>
+                    <h4>A) {{ question.choice1_text }}</h4>
+                    <h4>B) {{ question.choice2_text }}</h4>
+                    <h4>C) {{ question.choice2_text }}</h4>
+                    <h4>D) {{ question.choice4_text }}</h4>
+
+                     <a  class="main_btn" data-toggle="collapse" data-target="#ans" href="{% url 'GK:next' question.id %}" >Show Answer</a>
+                    <a class="main_btn"  href="{% url 'GK:next' question.id %}" >Next</a>
+                    <a class="main_btn"  href="{% url 'GK:pre' question.id %}" >Previous</a>
+
+                    <div id="ans" class="collapse">
+                        <h4><br/> {{question.answer_text}}</h4 >
+
+                        {% if question.notes %}<h4 class="well">Notes:<br>{{question.notes|safe}}</h4>{%endif%}
+                    </div>
+                </div>
+            </div>
+ </section>
+
+
+{%endblock%}}
