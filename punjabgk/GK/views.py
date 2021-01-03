@@ -15,6 +15,7 @@ def index(request,id):
     paginator=Paginator(question,10)
     page=request.GET.get('page')
     questions=paginator.get_page(page)
+
     context = {'questions': questions,'qt':qt}
     return render(request, 'GK/Todays.html', context)
 
