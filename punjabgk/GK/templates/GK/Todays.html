@@ -15,7 +15,7 @@
                         {% for question in questions %}
                         <div class="body">
                             {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-                            <h3 class="mb-20 title_color">Q: {{ question.question_text }}</h3>
+                            <h3 class="mb-20 title_color">Q: {{ question.question_text|safe }}</h3>
                             <ol class="ordered-list">
                                 <li><span> {{ question.choice1_text }}</span></li>
                                 <li><span> {{ question.choice2_text }}</span></li>
