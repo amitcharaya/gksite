@@ -6,7 +6,7 @@ class Question_Type(models.Model):
         return self.question_type
 
 class Question(models.Model):
-    question_text=models.CharField(max_length=200)
+    question_text=RichTextField(null=True, blank=True)
     pub_date=models.DateTimeField('date_published')
     choice1_text=models.CharField(max_length=200)
     choice2_text = models.CharField(max_length=200)
