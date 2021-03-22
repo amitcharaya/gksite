@@ -1,0 +1,75 @@
+<!doctype html>
+{%extends 'menu/base.html'%}
+{%  load static %}
+
+{% block content %}
+        
+        <!--================Home Banner Area =================-->
+        <section class="banner_area">
+            <div class="banner_inner d-flex align-items-center">
+            	<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+				<div class="container">
+					<div class="banner_content text-center">
+						<h2>Register</h2>
+						<div class="page_link">
+							<a href="index.html">Home</a>
+							<a href="contact.html">Login</a>
+						</div>
+					</div>
+				</div>
+            </div>
+        </section>
+        <!--================End Home Banner Area =================-->
+
+
+
+
+
+        <!--================Contact Area =================-->
+        <section class="contact_area p_120">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-lg-9 ">
+                        <!--================Contact Success and Error message Area =================-->
+
+                        <div class="col-md-4 text-right"></div>
+                        <div class="col-md-6 text-right">
+                            {% for message in messages %}
+                            <h3>{{ message }}</h3>
+                            {% endfor %}
+                        </div>
+                        <form class="row contact_form" action="/login/" method="post" id="contactForm" novalidate="novalidate">
+                            {% csrf_token %}
+                            <div class="col-md-4 text-right"></div>
+                            <div class="col-md-6 text-right">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="email" name="password" placeholder="Password">
+                                </div>
+
+                                <div class="col-md-12 text-right">
+                                    <span class="col-md-12">New User <a href="/register/" >Register here</a></span>
+                                <button type="submit" value="login" class="btn submit_btn">Login</button>
+
+
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================Contact Area =================-->
+        
+
+
+        
+        
+
+{% endblock %}

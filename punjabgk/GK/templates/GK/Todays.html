@@ -1,0 +1,69 @@
+{% extends "GK/base.html"%}
+
+{%block content%}
+{{ myhtml |safe }}
+<div class="pagination">
+    <div class="step-links">
+
+
+
+        <section class="courses_area p_120">
+            <div class="container">
+                <div class="text-lg-left">
+                    {% if questions %}
+                    <div>
+                        {% for question in questions %}
+                        <div class="body">
+                            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                            <h3 class="mb-20 title_color">Q: {{ question.question_text|safe }}</h3>
+                            <ol class="ordered-list">
+                                <li><span> {{ question.choice1_text }}</span></li>
+                                <li><span> {{ question.choice2_text }}</span></li>
+                                <li><span> {{ question.choice3_text }}</span></li>
+                                <li><span> {{ question.choice4_text }}</span></li>
+                            </ol>
+                            <a  class="main_btn" data-toggle="collapse" data-target="#ans{{ question.id }}"  >Show Answer</a>
+                            <!-- <a class="main_btn"  href="{% url 'GK:next' question.id %}" >Next</a>
+                             <a class="main_btn"  href="{% url 'GK:pre' question.id %}" >Previous</a>-->
+
+                            <div id="ans{{ question.id }}" class="collapse">
+                                <h4><br/> {{question.answer_text}}</h4><br/>
+					
+                                {% if question.notes %}Notes:<br><blockquote class="generic-blockquote">{{question.notes|safe}} </blockquote>{%endif%}
+                            </div>
+                            </h3>
+                            <!--
+                            <div class="card align-left">
+                                <a class="main_btn text-lg-left" href="{% url 'GK:details' question.id%}">{{ question.question_text }}</a>
+                            </div>-->
+                            {% endfor %}
+                        </div>
+                        {% else %}
+
+                        <p class="card align-left">No Question are available.</p>
+
+                        {% endif %}
+                    </div>
+                </div>
+                <span class="current">
+            Page {{ questions.number }} of {{ questions.paginator.num_pages }}.
+        </span>
+            </div>
+
+        </section>
+
+        {% if questions.has_previous %}
+        <a class="main_btn" href="?page=1">&laquo; First</a>
+        <a class="main_btn" href="?page={{ questions.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        {% if questions.has_next %}
+        <a class="main_btn" href="?page={{ questions.next_page_number }}">Next</a>
+        <a class="main_btn" href="?page={{ questions.paginator.num_pages }}">Last</a>
+        {% endif %}
+    </div>
+</div>
+
+
+
+{%endblock content%}

@@ -1,0 +1,39 @@
+{%  extends 'menu/base.html' %}
+
+{% block content %}
+{{ myhtml |safe }}
+
+<div class="pagination">
+    <div class="container">
+        <section class="courses_area p_120">
+            <div class="container">
+                <div class="text-lg-left">
+                    {% if postdetails %}
+                    <div>
+                        {% for postdetail in postdetails %}
+                            <div class="container  text-center"><h3>{{postdetail.haeding}}</h3></div>
+                        {% autoescape off %}
+                            {{postdetail.detail|safe}}
+                        {% endautoescape %}
+                        {% endfor %}
+                    {% else %}
+                        <p class="card align-left">No Question are available.</p>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+        {% endblock %}
+
+    </body>
+</html>
